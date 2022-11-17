@@ -1,0 +1,22 @@
+Script started on 2022-11-17 16:34:28-05:00
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ for INFL in `cat influencers.NOBOTS.txt` ; do grep $INFL downloaded_tweets_extend_original_nolf2_NOBOT_retweeted.tsv  |  awk -F "\t" '{print $4}' | tr "," "\n"  | tr [:upper:] [:lower:]|| tr -d ' '| tr -d '\"' > infl_retweets/$INFL.hashtags ;  done 
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ cd infl_replies/
+]0;amirali@sjsu:/mnt/scratch/amirali/A5/infl_replies[amirali@sjsu infl_replies]$ echo "HASHTAG User  relative_frequency_H_C  frequency_H_in_C  frequency_H_overall count_H_in_C count_hashtags_in_C count_H_dataset count_hashtags_entire_dataset" ; for FILE in `ls | grep -v replied_hashtag_freq.tsv` ; do for HASHTAG in `cat $FILE` ; do count_H_in_C=`grep $HASHTAG $FILE | wc -l` ; count_hashtags_in_C=`cat $FILE | wc -l` ; count_H_dataset=`grep $HASHTAG ../downloaded_tweets_extend_original_nolf2_REPLIED.tsv | wc -l` ; count_hashtags_entire_dataset=3928;  frequency_H_in_C=`echo "$count_H_in_C / $count_hashtags_in_C" | bc -l` ; frequency_H_overall=`echo "$count_H_dataset /$count_hashtags_entire_dataset" | bc -l` ; relative_frequency_H_in_C=`echo "$frequency_H_in_C / $frequency_H_overall" | bc -l`  ;echo "$HASHTAG $FILE $relative_frequency_H_in_C  $frequency_H_in_C  $frequency_H_overall $count_H_in_C $count_hashtags_in_C $count_H_dataset $count_hashtags_entire_dataset" ; done ; done  > replied_hashtags_freq.tsv
+]0;amirali@sjsu:/mnt/scratch/amirali/A5/infl_replies[amirali@sjsu infl_replies]$ exit
+
+Script done on 2022-11-17 16:34:56-05:00
+Script started on 2022-11-17 16:47:14-05:00
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ for INFL in `cat influencers.NOBOTS.txt` ; do grep $INFL downloaded_tweets_extend_original_nolf2_NOBOT_retweeted.tsv  |  awk -F "\t" '{print $4}' | tr "," "\n"  | tr [:upper:] [:lower:]|| tr -d ' '| tr -d '\"' > infl_retweets/$INFL.hashtags ;  done 
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ cd infl_retweets/
+]0;amirali@sjsu:/mnt/scratch/amirali/A5/infl_retweets[amirali@sjsu infl_retweets]$ cho "HASHTAG User  relative_frequency_H_C  frequency_H_in_C  frequency_H_overall count_H_in_C count_hashtags_in_C count_H_dataset count_hashtags_entire_dataset" ; for FILE in `ls | grep -v replied_hashtag_freq.tsv` ; do for HASHTAG in `cat $FILE` ; do count_H_in_C=`grep $HASHTAG $FILE | wc -l` ; count_hashtags_in_C=`cat $FILE | wc -l` ; count_H_dataset=`grep $HASHTAG ../downloaded_tweets_extend_original_nolf2_NOBOT_retweeted.tsv | wc -l` ; count_hashtags_entire_dataset=48956;  frequency_H_in_C=`echo "$count_H_in_C / $count_hashtags_in_C" | bc -l` ; frequency_H_overall=`echo "$count_H_dataset /$count_hashtags_entire_dataset" | bc -l` ; relative_frequency_H_in_C=`echo "$frequency_H_in_C / $frequency_H_overall" | bc -l`  ;echo "$HASHTAG $FILE $relative_frequency_H_in_C  $frequency_H_in_C  $frequency_H_overall $count_H_in_C $count_hashtags_in_C $count_H_dataset $count_hashtags_entire_dataset" ; done ; done  > retweeted_hashtags_freq.tsv
+]0;amirali@sjsu:/mnt/scratch/amirali/A5/infl_retweets[amirali@sjsu infl_retweets]$ exit
+
+Script done on 2022-11-17 16:47:42-05:00
+Script started on 2022-11-17 16:45:03-05:00
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ grep -v -e "replied_to" -e "quoted" downloaded_tweets_extend_original_nolf2_NOBOT.tsv > downloaded_tweets_extend_original_nolf2_NOBOT_retweeted.tsv
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ grep retweeted downloaded_tweets_extend_nolf2_NOBOT.tsv | cut -f 5 > retweet_id.tsv
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ sed -i 's/^[^0-9]\+//;s/[^0-9,]\+//' retweet_id.tsv 
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ grep -w -Ff "retweet_id.tsv" downloaded_tweets_extend_original_nolf2_NOBOT_retweeted.tsv| cut -f 2  > influencial_retweerter_users_NOBOT.txt
+]0;amirali@sjsu:/mnt/scratch/amirali/A5[amirali@sjsu A5]$ exit
+
+Script done on 2022-11-17 16:46:35-05:00
