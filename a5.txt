@@ -42,7 +42,9 @@ Script done on 2022-11-17 16:46:35-05:00
 Question: 
 do you see any hashtags that are "special" to some clusters, i.e. that occur often in a particular cluster of tweets, but less often in the tweets overall? 
 
-Yes, the hashtag justicematter has been used quite often in a cluster amoung the replied tweets. Furthermore, the hashtags used in the retweets mostly a variation of COVID-19. 
+Yes, the hashtag justicematter has been used quite often in a cluster amoung the replied tweets. The hashtag of #justicematters occuers in a cluster of
+tweets in the replied tweets. This shows, a tweet threat with constant support for the movement for justice. 
+Furthermore, the hashtags used in the retweets mostly a variation of COVID-19. Covid-19 related hashtags were constantly retweeted to share the news of Covid related activities. 
 
 
 
